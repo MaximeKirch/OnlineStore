@@ -5,9 +5,10 @@ import Avatar from "../assets/image-avatar.png"
 
 export default function Navbar() {
   return (
-    <Flex  width="100%">
+    <Flex  width="100%" h="80px" mb={20}>
         <Box w='100px'>
             <Text>
+            <Image alt="logo"/>
                 <Link href="/"> Sneakers</Link>
             </Text>
         </Box>
