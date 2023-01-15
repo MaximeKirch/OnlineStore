@@ -1,27 +1,26 @@
 import { useState } from 'react'
 import Navbar from './components/Navbar'
-import './App.css'
+import Collections from './views/Collections'
+import Men from './views/Men'
+import Women from './views/Women'
+import Home from './views/Home'
+import Contact from './views/Contact'
+import About from './views/About'
+import Account from './views/Account'
+import { Routes, Route} from 'react-router-dom'
 
 function App() {
 
   return (
-    <div className="App">
-      <Navbar/>
-
-        Sneaker Company
-
-        Fall Limited Edition Sneakers
-
-        These low-profile sneakers are your perfect casual wear companion. Featuring a 
-        durable rubber outer sole, they’ll withstand everything the weather can offer.
-
-        $125.00
-        50%
-        $250.00
-
-        0
-        Add to cart
-    </div>
+    <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/collections' element={<Collections/>}/>
+      <Route path='/men' element={<Men/>} />
+      <Route path='/women' element={<Women/>} />
+      <Route path='/about' element={<About/>} />
+      <Route path='/contact' element={<Contact/>} />
+      <Route path='/account' element={<Account/>} />
+    </Routes>
   )
 }
 
