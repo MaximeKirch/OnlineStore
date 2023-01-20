@@ -1,6 +1,7 @@
 import React from 'react'
 import { TitleSeparator } from '../hooks/TitleSeparator'
 import {Container, Heading, Flex, Text, Box, Image} from "@chakra-ui/react"
+import AddToCard from '../hooks/AddToCard'
 
 export default function ProductCard({product}) {
     console.log(product)
@@ -18,6 +19,7 @@ export default function ProductCard({product}) {
                 <TitleSeparator title={product.title} />
                 <Text mb={5} color='hsl(219, 9%, 45%)'>{product.description}</Text>
                 <Text fontSize="30px" as="b">${product.price}</Text>
+                <AddToCard productId={product.id}/>
               </Box>
             </Flex>
         

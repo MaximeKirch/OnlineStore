@@ -48,7 +48,7 @@ import {
                             <Image alt="logo" src={Logo}/> 
                         </Link>
                     </Box>
-                  <ButtonGroup variant="link" spacing="8">
+                  <ButtonGroup variant="link" spacing="8" alignItems='center'>
                     {['Collections', 'Men', 'Women', 'About', 'Contact'].map((item) => (
                         <>
                         <Link as={ReactRouterLink} to={`/${item}`}>
@@ -57,7 +57,7 @@ import {
                         </>
                     ))}
                   </ButtonGroup>
-                  <HStack spacing="3">
+                  <HStack spacing="3" ml={'2'}>
                     <Button variant="ghost"><IoCartOutline /></Button>
                     <Button variant="primary"><Image src={Avatar} alt="Profile" maxW="50px"/></Button>
                   </HStack>
