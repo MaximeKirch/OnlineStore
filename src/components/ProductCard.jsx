@@ -2,9 +2,15 @@ import React from 'react'
 import { TitleSeparator } from '../hooks/TitleSeparator'
 import {Container, Heading, Flex, Text, Box, Image} from "@chakra-ui/react"
 import AddToCard from '../hooks/AddToCard'
+import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 
-export default function ProductCard({product}) {
-    console.log(product)
+export default function ProductCard() {
+
+  const products = useSelector((state) => state.products.products);
+  const {id} = useParams()
+  const product = products && products.find(product => product.id === Number(id))
+  
   return (
    <>
         {

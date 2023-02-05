@@ -16,7 +16,7 @@ import {
   import Logo from "../assets/logo.svg"
   import React, {useState} from 'react'
   import { FiMenu } from 'react-icons/fi'
-  import { Link as ReactRouterLink} from "react-router-dom"
+  import { Link as ReachLink} from "react-router-dom"
   
   export default function Navbar() {
     const isDesktop = useBreakpointValue({
@@ -49,12 +49,12 @@ import {
                         </Link>
                     </Box>
                   <ButtonGroup variant="link" spacing="8" alignItems='center'>
-                    {['Collections', 'Men', 'Women', 'About', 'Contact'].map((item) => (
-                        <>
-                        <Link as={ReactRouterLink} to={`/${item}`}>
-                            <Button key={item}>{item}</Button>
+                    {['Collections', 'Men', 'Women', 'About', 'Contact'].map((item, index) => (
+                        <div key={index}>
+                        <Link as={ReachLink} to={`/${item}`}>
+                            <Button>{item}</Button>
                         </Link>
-                        </>
+                        </div>
                     ))}
                   </ButtonGroup>
                   <HStack spacing="3" ml={'2'}>
@@ -71,7 +71,7 @@ import {
                   
                   onClick={() => setToggle(!toggle)}
                 />
-                <Link as={ReactRouterLink} to={'/'}>
+                <Link as={ReachLink} to={'/'}>
                     <Image alt="logo" src={Logo}/> 
                 </Link>
                 { toggle &&
@@ -79,11 +79,11 @@ import {
                     <Flex p="5" flexDirection='column' position="absolute" bottom="-290px" left="-40px" bg="white" borderRadius="8px" boxShadow="md">
                         <ButtonGroup variant="link" display='flex' flexDirection='column' w={'300px'}> 
                             {['Collections', 'Men', 'Women', 'About', 'Contact'].map((item, index) => (
-                                <>
-                                <Link mb="2" as={ReactRouterLink} to={`/${item}`}>
-                                    <Button key={index}>{item}</Button>
+                                <div key={index}>
+                                <Link mb="2" as={ReachLink} to={`/${item}`}>
+                                    <Button>{item}</Button>
                                 </Link>
-                                </>
+                                </div>
                             ))}
                         </ButtonGroup>
                         <HStack spacing="3" p="5" borderTop="1px solid #e3e3e3">
