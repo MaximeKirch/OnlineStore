@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../Layout/Navbar'
 import ProductDetail from './ProductDetail'
 import {Container, Text} from "@chakra-ui/react"
 
