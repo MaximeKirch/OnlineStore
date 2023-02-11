@@ -19,7 +19,7 @@ import { store } from "./Redux/store.js";
 import { Provider } from "react-redux";
 import { fetchProducts } from "./Redux/Reducers/products";
 
-//store.dispatch(fetchProducts())
+store.dispatch(fetchProducts())
 
 const router = createBrowserRouter([
   {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <App />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Collections />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <ProductDetail />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Men />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Women />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -67,7 +67,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Account />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <About />
-      </Layout>
+        </Layout>
     ),
   },
   {
@@ -83,17 +83,18 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Contact />
-      </Layout>
+        </Layout>
     ),
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  <Provider store={store}>
     <RouterProvider router={router}>
       <ChakraProvider theme={theme}>
-          <App />
       </ChakraProvider>
     </RouterProvider>
+      </Provider>
   </React.StrictMode>,
 );

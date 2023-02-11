@@ -1,14 +1,16 @@
 import React from 'react'
 import Navbar from "./Layout"
 import { Outlet } from 'react-router-dom'
+import NavbarTest from './NavbarTest'
 
-export default function Layout({children}) {
+const Layout = ({children}) => {
   return (
     <>
-        <Navbar />
-        <main>{children}</main>
-        {/* Footer */}
-        <Outlet />
+      <NavbarTest/>
+      <Navbar/>
+      <main>{children}</main> 
     </>
   )
 }
+
+export default Layout;
