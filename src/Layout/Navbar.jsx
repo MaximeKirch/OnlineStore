@@ -19,10 +19,7 @@ import {
   import { Link as ReachLink} from "react-router-dom"
   
   export default function Navbar() {
-     const isDesktop = useBreakpointValue({
-      base: false,
-      lg: true,
-    })
+     const isDesktop = window.innerWidth > 768
 
     const links = ['Collections', 'Men', 'Women', 'About', 'Contact']
 

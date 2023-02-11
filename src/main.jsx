@@ -92,7 +92,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <Provider store={store}>
     <RouterProvider router={router}>
-      <ChakraProvider theme={theme}>
+      <ChakraProvider resetCSS theme={theme}>
       </ChakraProvider>
     </RouterProvider>
       </Provider>
