@@ -25,7 +25,7 @@ export default function ProductCard() {
                 <TitleSeparator title={product.title} />
                 <Text mb={5} color='hsl(219, 9%, 45%)'>{product.description}</Text>
                 <Text fontSize="30px" as="b">${product.price}</Text>
-                <AddToCard productId={product.id}/>
+                <AddToCard product={product}/>
               </Box>
             </Flex>
         

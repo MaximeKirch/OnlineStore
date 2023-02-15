@@ -1,6 +1,6 @@
-import { extendBaseTheme } from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 
-const theme = extendBaseTheme({
+const theme = extendTheme({
   fonts: {
     heading: `'Kumbh Sans', sans-serif`,
     body: `'Kumbh Sans', sans-serif`,

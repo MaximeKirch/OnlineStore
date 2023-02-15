@@ -1,20 +1,26 @@
 import React, { useState } from "react";
 import { Box, Flex, Button, Text } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/Reducers/cart";
 
-export default function AddToCard({ productId }) {
-  const [count, setCount] = useState(0);
+export default function AddToCard({ product }) {
+  const [quantity, setQuantity] = useState(0);
+  const dispatch = useDispatch();
+
+  const { id, title, price, image } = product;
 
   const incremCount = () => {
-    setCount(count + 1);
+    setQuantity(quantity + 1);
   };
 
   const decremCount = () => {
-    count > 0 ? setCount(count - 1) : null;
+    quantity > 0 ? setQuantity(quantity - 1) : null;
   };
 
-  const addToCart = () => {
-    console.log("Produit ajouté au panier", productId, 'quantité :', count)
-  }
+  const add = () => {
+    console.log("Produit ajouté au panier", product.id, "quantité :", quantity);
+    dispatch(addToCart({ id, title, price, image, quantity }));
+  };
 
   return (
     <Flex justifyContent="space-between" mt={5}>
@@ -43,8 +49,13 @@ export default function AddToCard({ productId }) {
             <use fill="#FF7E1B" fillRule="nonzero" xlinkHref="#a" />
           </svg>
         </Button>
-        <Flex  minW="35px" alignItems="center" justifyContent='center' fontWeight={700}>
-          {count}
+        <Flex
+          minW="35px"
+          alignItems="center"
+          justifyContent="center"
+          fontWeight={700}
+        >
+          {quantity}
         </Flex>
         <Button
           onClick={incremCount}
@@ -79,17 +90,16 @@ export default function AddToCard({ productId }) {
         alignItems="center"
         justifyContent="center"
         borderRadius="8px"
-        boxShadow='md'
-
+        boxShadow="md"
       >
         <Button
           bg="none"
           display="flex"
           alignItems="center"
           justifyContent="center"
-          w='100%'
-          h='100%'
-          onClick={addToCart}
+          w="100%"
+          h="100%"
+          onClick={add}
         >
           <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -98,7 +108,9 @@ export default function AddToCard({ productId }) {
               fillRule="nonzero"
             />
           </svg>
-          <Text color='white' ml={4}>Add to cart</Text>
+          <Text color="white" ml={4}>
+            Add to cart
+          </Text>
         </Button>
       </Flex>
     </Flex>

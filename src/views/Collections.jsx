@@ -4,9 +4,6 @@ import ProductList from "../components/ProductList";
 import { Container, Flex, Box, Spinner } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
-import ProductList from "../components/ProductList";
-import { Container, Spinner } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
 
 export default function Collections() {
   const products = useSelector((state) => state.products.products);

@@ -8,8 +8,6 @@ import {
     Image,
     HStack,
     IconButton,
-    useBreakpointValue,
-    useColorModeValue,
   } from '@chakra-ui/react'
   import { IoCartOutline } from "react-icons/io5";
   import Avatar from "../assets/image-avatar.png"
@@ -17,13 +15,14 @@ import {
   import React, {useState} from 'react'
   import { FiMenu } from 'react-icons/fi'
   import { Link as ReachLink} from "react-router-dom"
+import CartModal from '../components/CartModal';
   
   export default function Navbar() {
-     const isDesktop = window.innerWidth > 768
-
+    const isDesktop = window.innerWidth > 768
     const links = ['Collections', 'Men', 'Women', 'About', 'Contact']
-
     const [toggle, setToggle] = useState(false)
+    const [toggleCart, setToggleCart] = useState(false)
+
     return (
       <Box
         as="section"
@@ -57,7 +56,7 @@ import {
                     ))}
                   </ButtonGroup>
                   <HStack spacing="3" ml={'2'}>
-                    <Button variant="ghost"><IoCartOutline /></Button>
+                    <Button variant="ghost" onClick={() => setToggleCart(!toggleCart)}><IoCartOutline /></Button>
                     <Button variant="primary"><Image src={Avatar} alt="Profile" maxW="50px"/></Button>
                   </HStack>
                 </Flex>
@@ -85,7 +84,7 @@ import {
                             ))}
                         </ButtonGroup>
                         <HStack spacing="3" p="5" borderTop="1px solid #e3e3e3">
-                            <Button variant="ghost"><IoCartOutline /></Button>
+                            <Button variant="ghost" onClick={() => setToggleCart(!toggleCart)}><IoCartOutline /></Button>
                             <Button variant="primary"><Image src={Avatar} alt="Profile" maxW="50px"/></Button>
                         </HStack>
                     </Flex>
@@ -96,6 +95,8 @@ import {
             </HStack>
           </Container>
         </Box>
+        
+        {toggleCart && <CartModal />}
       </Box>
     )
   }
