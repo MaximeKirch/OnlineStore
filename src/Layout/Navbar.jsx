@@ -16,13 +16,12 @@ import {
   import Logo from "../assets/logo.svg"
   import React, {useState} from 'react'
   import { FiMenu } from 'react-icons/fi'
-  import { Link as ReactRouterLink} from "react-router-dom"
+  import { Link as ReachLink} from "react-router-dom"
   
   export default function Navbar() {
-    const isDesktop = useBreakpointValue({
-      base: false,
-      lg: true,
-    })
+     const isDesktop = window.innerWidth > 768
+
+    const links = ['Collections', 'Men', 'Women', 'About', 'Contact']
 
     const [toggle, setToggle] = useState(false)
     return (
@@ -44,14 +43,14 @@ import {
               {isDesktop ? (
                 <Flex justify="space-between" flex="1">
                     <Box w='100px' m={5}>
-                        <Link href="/">
+                        <Link as={ReachLink} to="/">
                             <Image alt="logo" src={Logo}/> 
                         </Link>
                     </Box>
                   <ButtonGroup variant="link" spacing="8" alignItems='center'>
-                    {['Collections', 'Men', 'Women', 'About', 'Contact'].map((item, index) => (
+                    {links.map((item, index) => (
                         <div key={index}>
-                        <Link as={ReactRouterLink} to={`/${item}`}>
+                        <Link as={ReachLink} to={`/${item}`}>
                             <Button>{item}</Button>
                         </Link>
                         </div>
@@ -68,19 +67,18 @@ import {
                   variant="ghost"
                   icon={<FiMenu fontSize="1.25rem" />}
                   aria-label="Open Menu"
-                  
                   onClick={() => setToggle(!toggle)}
                 />
-                <Link as={ReactRouterLink} to={'/'}>
+                <Link as={ReachLink} to={'/'}>
                     <Image alt="logo" src={Logo}/> 
                 </Link>
                 { toggle &&
                     <>
                     <Flex p="5" flexDirection='column' position="absolute" bottom="-290px" left="-40px" bg="white" borderRadius="8px" boxShadow="md">
                         <ButtonGroup variant="link" display='flex' flexDirection='column' w={'300px'}> 
-                            {['Collections', 'Men', 'Women', 'About', 'Contact'].map((item, index) => (
+                            {links.map((item, index) => (
                                 <div key={index}>
-                                <Link mb="2" as={ReactRouterLink} to={`/${item}`}>
+                                <Link mb="2" as={ReachLink} to={`/${item}`}>
                                     <Button>{item}</Button>
                                 </Link>
                                 </div>
@@ -94,7 +92,6 @@ import {
                     </>
                 }
                 </>
-
               )}
             </HStack>
           </Container>

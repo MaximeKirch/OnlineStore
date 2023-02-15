@@ -4,9 +4,10 @@ import ProductCard from '../components/ProductCard'
 
 
 export default function ProductDetail() {
+
   return (
     <Container mt={25} pt={25} maxW={'container.lg'}>
-        <ProductCard />    
+        <ProductCard />
     </Container>
   )
 }

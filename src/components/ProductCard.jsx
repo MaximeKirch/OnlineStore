@@ -10,7 +10,7 @@ export default function ProductCard() {
   const products = useSelector((state) => state.products.products);
   const {id} = useParams()
   const product = products && products.find(product => product.id === Number(id))
-
+  
   return (
    <>
         {
