@@ -3,15 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice ({
     name: 'cart',
     initialState : {
-        cart: [
-            {
-                id: 1, 
-                name:"test t-shirt manche longues bicolore avec boutons", 
-                price: 12, 
-                quantity:2,
-                image_url:"https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
-            }
-    ]
+        cart: []
     },     
 
 reducers: {

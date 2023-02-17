@@ -7,8 +7,6 @@ import TotalPrice from "../hooks/TotalPrice";
 export default function CartModal() {
   const cart = useSelector((state) => state.cart.cart);
 
-  console.log(cart.length);
-
   return (
     <Box
       position="absolute"
@@ -18,6 +16,8 @@ export default function CartModal() {
       display="flex"
       border="2px solid #eee"
       flexDirection="column"
+      backgroundColor="#fff"
+      zIndex="99"
     >
       <Box width="100%">
         <Text textAlign="center" fontSize="24px">
