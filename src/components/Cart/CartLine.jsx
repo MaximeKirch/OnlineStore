@@ -2,7 +2,7 @@ import React from 'react'
 import {Box, Text, Image} from '@chakra-ui/react'
 import {FaAngleLeft, FaAngleRight, FaTrashAlt} from "react-icons/fa" 
 import { useDispatch } from 'react-redux'
-import { incrementQuantity, decrementQuantity, removeItem } from '../Redux/Reducers/cart'
+import { incrementQuantity, decrementQuantity, removeItem } from '../../Redux/Reducers/cart'
 export default function CartLine({item}) {
 
     const {id, name, image_url, price, quantity, image, title} = item

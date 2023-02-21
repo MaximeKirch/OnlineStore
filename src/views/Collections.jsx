@@ -1,7 +1,7 @@
 import React from "react";
 
-import ProductList from "../components/ProductList";
-import { Container, Flex, Box, Spinner } from "@chakra-ui/react";
+import ProductList from "../components/Product/ProductList";
+import { Container, Spinner } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 

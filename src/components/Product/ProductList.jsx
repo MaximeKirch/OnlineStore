@@ -1,6 +1,5 @@
 import React from 'react'
-import {Heading, Flex, Text, Box, Image, Button, Link} from "@chakra-ui/react"
-import { TitleSeparator } from '../hooks/TitleSeparator'
+import {Flex, Text, Image, Button, Link} from "@chakra-ui/react"
 import { Link as ReachLink} from "react-router-dom"
 
 export default function ProductList({item}) {

@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import CartLine from "./CartLine";
-import TotalPrice from "../hooks/TotalPrice";
+import TotalPrice from "../../hooks/TotalPrice";
 
 export default function CartModal() {
   const cart = useSelector((state) => state.cart.cart);

@@ -14,6 +14,8 @@ import Contact from "./views/Contact";
 import About from "./views/About";
 import Account from "./views/Account";
 import ProductDetail from "./views/ProductDetail";
+import Register from "./views/Register";
+import SignIn from "./views/SignIn";
 
 import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
@@ -88,6 +90,22 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
+  {
+    path: "signin",
+    element: (
+      <Layout>
+        <SignIn/>
+      </Layout>
+    )
+  },
+  {
+    path: "register",
+    element: (
+      <Layout>
+        <Register/>
+      </Layout>
+    )
+  }
 ]);
 
 

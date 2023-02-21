@@ -1,6 +1,6 @@
 import React from 'react'
-import {Container, Heading, Flex, Text, Box, Image} from "@chakra-ui/react"
-import AddToCard from '../hooks/AddToCard'
+import { Flex, Text, Box, Image } from "@chakra-ui/react"
+import AddToCard from '../../hooks/AddToCard';
 import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 

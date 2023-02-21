@@ -29,6 +29,10 @@ export const productsSlice = createSlice({
 
 export const {productsLoading, productsSuccess } = productsSlice.actions;
 
+export default productsSlice.reducer
+
+// Actions 
+
 export const fetchProducts = () => async (dispatch) => {
     try {
         dispatch(productsLoading());
@@ -42,5 +46,3 @@ export const fetchProducts = () => async (dispatch) => {
         console.log(error)
     }
 }
-
-export default productsSlice.reducer
