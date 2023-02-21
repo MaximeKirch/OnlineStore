@@ -15,9 +15,11 @@ import About from "./views/About";
 import Account from "./views/Account";
 import ProductDetail from "./views/ProductDetail";
 
-import { store } from "./Redux/store.js";
+import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
 import { fetchProducts } from "./Redux/Reducers/products";
+
+import { PersistGate } from "redux-persist/integration/react";
 
 store.dispatch(fetchProducts())
 
@@ -95,10 +97,12 @@ store.dispatch(fetchProducts())
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
       <RouterProvider router={router}>
         <ChakraProvider theme={theme}>
         </ChakraProvider>
       </RouterProvider>
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
 );
