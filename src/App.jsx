@@ -1,13 +1,11 @@
-import React, { useState } from 'react'
-import {Container, Text} from '@chakra-ui/react'
+import { Container, Text, Button } from "@chakra-ui/react";
 
 function App() {
-  
-return (
+
+  return (
     <Container maxW="100%">
-      <Text>Hello World</Text> 
     </Container>
-)
+  );
 }
 
-export default App
+export default App;

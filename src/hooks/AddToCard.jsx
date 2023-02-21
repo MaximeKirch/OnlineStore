@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/Reducers/cart";
 
 export default function AddToCard({ product }) {
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
   const { id, title, price, image } = product;
@@ -19,7 +19,11 @@ export default function AddToCard({ product }) {
 
   const add = () => {
     console.log("Produit ajouté au panier", product.id, "quantité :", quantity);
-    dispatch(addToCart({ id, title, price, image, quantity }));
+    
+    quantity >= 1 ? 
+    dispatch(addToCart({ id, title, price, image, quantity }))
+    : 
+    null;
   };
 
   return (

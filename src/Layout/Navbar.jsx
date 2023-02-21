@@ -49,7 +49,7 @@ import CartModal from '../components/CartModal';
                   <ButtonGroup variant="link" spacing="8" alignItems='center'>
                     {links.map((item, index) => (
                         <div key={index}>
-                        <Link as={ReachLink} to={`/${item.toLowerCase()}`}>
+                        <Link as={ReachLink} to={`/${item}`}>
                             <Button>{item}</Button>
                         </Link>
                         </div>
