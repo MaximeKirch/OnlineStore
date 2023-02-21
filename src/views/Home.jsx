@@ -1,32 +1,11 @@
-import React, {useState, useEffect} from 'react'
-import Navbar from '../Layout/Navbar'
-import ProductDetail from './ProductDetail'
+import React from 'react'
 import {Container, Text} from "@chakra-ui/react"
 
-export default function Home() {
-
-    const [data, setData] = useState()
-    const [isLoading, setIsLoading] = useState(true)
-    
-    useEffect(() => {
-      fetch('https://fakestoreapi.com/products/1')
-        .then(res=>res.json())
-        .then(json=>{
-            setData(json)
-            setIsLoading(false)
-        })
-    }, [])
+export default function Home() {    
     
   return (
     <Container maxW="100%">
-      <Navbar/>
-
-        { isLoading 
-                ? 
-            <Text>Loading...</Text> 
-                :
-            <ProductDetail product={data}/>
-        }   
+      <Text>Home</Text>
     </Container>
   )
 }

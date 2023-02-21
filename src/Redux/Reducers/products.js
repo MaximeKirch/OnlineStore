@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const initialState = {
     products : [],
@@ -30,9 +32,12 @@ export const {productsLoading, productsSuccess } = productsSlice.actions;
 export const fetchProducts = () => async (dispatch) => {
     try {
         dispatch(productsLoading());
-        const response = await fetch("https://fakestoreapi.com/products/")
-        const data = await response.json()
-        dispatch(productsSuccess(data))
+        await getDocs(collection(db, "products"))
+        .then((querySnapshot)=>{               
+            const newData = querySnapshot.docs
+                .map((doc) => ({...doc.data(), id:doc.id }));
+            dispatch(productsSuccess(newData));                
+        })
     } catch (error) {
         console.log(error)
     }

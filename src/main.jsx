@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
-import { createBrowserRouter, RouterProvider , BrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import theme from "./theme";
 import "@fontsource/kumbh-sans/400.css";
 import "@fontsource/kumbh-sans/700.css";
@@ -15,9 +15,11 @@ import About from "./views/About";
 import Account from "./views/Account";
 import ProductDetail from "./views/ProductDetail";
 
-import { store } from "./Redux/store.js";
+import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
 import { fetchProducts } from "./Redux/Reducers/products";
+
+import { PersistGate } from "redux-persist/integration/react";
 
 store.dispatch(fetchProducts())
 
@@ -27,63 +29,63 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <App />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "Collections",
+    path: "collections",
     element: (
       <Layout>
         <Collections />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "Collections/:id",
+    path: "collections/:id",
     element: (
       <Layout>
         <ProductDetail />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "Men",
+    path: "men",
     element: (
       <Layout>
         <Men />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "Women",
+    path: "women",
     element: (
       <Layout>
         <Women />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "Account",
+    path: "account",
     element: (
       <Layout>
         <Account />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "About",
+    path: "about",
     element: (
       <Layout>
         <About />
-        </Layout>
+      </Layout>
     ),
   },
   {
-    path: "Contact",
+    path: "contact",
     element: (
       <Layout>
         <Contact />
-        </Layout>
+      </Layout>
     ),
   },
 ]);
@@ -94,11 +96,13 @@ store.dispatch(fetchProducts())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <Provider store={store}>
-    <RouterProvider router={router}>
-      <ChakraProvider theme={theme}>
-      </ChakraProvider>
-    </RouterProvider>
-      </Provider>
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+      <RouterProvider router={router}>
+        <ChakraProvider theme={theme}>
+        </ChakraProvider>
+      </RouterProvider>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>,
 );

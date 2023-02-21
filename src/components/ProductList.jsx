@@ -1,6 +1,7 @@
 import React from 'react'
 import {Heading, Flex, Text, Box, Image, Button, Link} from "@chakra-ui/react"
 import { TitleSeparator } from '../hooks/TitleSeparator'
+import { Link as ReachLink} from "react-router-dom"
 
 export default function ProductList({item}) {
 
@@ -15,7 +16,7 @@ export default function ProductList({item}) {
             <Text pt={5} fontSize='18px' fontWeight='bold'>{item.price} $</Text>
           </Flex>
           <Flex>
-            <Link href={`/collections/${item.id}`} textDecoration="none">
+            <Link as={ReachLink} to={`/collections/${item.id}`} textDecoration="none">
               <Button backgroundColor="hsl(26, 100%, 55%)" color='white'>More infos</Button>
             </Link>
           </Flex>

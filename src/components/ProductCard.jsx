@@ -1,5 +1,4 @@
 import React from 'react'
-import { TitleSeparator } from '../hooks/TitleSeparator'
 import {Container, Heading, Flex, Text, Box, Image} from "@chakra-ui/react"
 import AddToCard from '../hooks/AddToCard'
 import { useSelector } from "react-redux";
@@ -9,7 +8,7 @@ export default function ProductCard() {
 
   const products = useSelector((state) => state.products.products);
   const {id} = useParams()
-  const product = products && products.find(product => product.id === Number(id))
+  const product = products && products.find(product => product.id === id)
   
   return (
    <>
@@ -22,7 +21,7 @@ export default function ProductCard() {
                 </Box>
               </Box>
               <Box w={['100%', '100%', '50%']} px={50} pt={25}>
-                <TitleSeparator title={product.title} />
+                <Text mb={5} fontSize='24px'>{product.title}</Text>
                 <Text mb={5} color='hsl(219, 9%, 45%)'>{product.description}</Text>
                 <Text fontSize="30px" as="b">${product.price}</Text>
                 <AddToCard product={product}/>
