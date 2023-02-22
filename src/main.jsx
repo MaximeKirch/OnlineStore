@@ -16,6 +16,7 @@ import Account from "./views/Account";
 import ProductDetail from "./views/ProductDetail";
 import Register from "./views/Register";
 import SignIn from "./views/SignIn";
+import Dashboard from "./views/Dashboard/Dashboard/index"
 
 import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
@@ -105,6 +106,14 @@ const router = createBrowserRouter([
         <Register/>
       </Layout>
     )
+  },
+  {
+    path: "dashboard",
+    element: (
+      <Layout>
+        <Dashboard/>
+      </Layout>
+    )
   }
 ]);
 
@@ -116,10 +125,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-      <RouterProvider router={router}>
         <ChakraProvider theme={theme}>
+          <RouterProvider router={router}>
+          </RouterProvider>
         </ChakraProvider>
-      </RouterProvider>
       </PersistGate>
     </Provider>
   </React.StrictMode>,
