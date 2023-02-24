@@ -14,9 +14,10 @@ import Contact from "./views/Contact";
 import About from "./views/About";
 import Account from "./views/Account";
 import ProductDetail from "./views/ProductDetail";
-import Register from "./views/Register";
-import SignIn from "./views/SignIn";
 import Dashboard from "./views/Dashboard/Dashboard/index"
+import Profile from "./views/Dashboard/Profile/index"
+import SignIn from "./views/Auth/SignIn"
+import SignUp from "./views/Auth/SignUp"
 
 import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
@@ -100,21 +101,37 @@ const router = createBrowserRouter([
     )
   },
   {
-    path: "register",
-    element: (
-      <Layout>
-        <Register/>
-      </Layout>
-    )
-  },
-  {
     path: "dashboard",
     element: (
       <Layout>
         <Dashboard/>
       </Layout>
     )
-  }
+  },
+  {
+    path: "dashboard/profile",
+    element: (
+      <Layout>
+        <Profile />
+      </Layout>
+    ),
+  },
+  {
+    path: "sign-in",
+    element: (
+      <Layout>
+        <SignIn />
+      </Layout>
+    ),
+  },
+  {
+    path: "sign-up",
+    element: (
+      <Layout>
+        <SignUp />
+      </Layout>
+    ),
+  },
 ]);
 
 

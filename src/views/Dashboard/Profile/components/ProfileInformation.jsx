@@ -1,9 +1,9 @@
 // Chakra imports
 import { Flex, Icon, Link, Text, useColorModeValue } from "@chakra-ui/react";
 // Custom components
-import Card from "components/Card/Card";
-import CardBody from "components/Card/CardBody";
-import CardHeader from "components/Card/CardHeader";
+import Card from "../../../../components/Card/Card";
+import CardBody from "../../../../components/Card/CardBody";
+import CardHeader from "../../../../components/Card/CardHeader";
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 

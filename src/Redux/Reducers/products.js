@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../utils/firebase/firebase";
 
 const initialState = {
     products : [],

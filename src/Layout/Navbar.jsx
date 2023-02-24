@@ -79,11 +79,11 @@ export default function Navbar() {
                     </Link>
                   ) : (
                     <>
-                      <Link as={ReachLink} to={"/signin"}>
+                      <Link as={ReachLink} to={"/sign-in"}>
                         <Button>Sign in</Button>
                       </Link>
-                      <Link as={ReachLink} to={"/register"}>
-                        <Button>Register</Button>
+                      <Link as={ReachLink} to={"/sign-up"}>
+                        <Button>Sign up</Button>
                       </Link>
                     </>
                   )}

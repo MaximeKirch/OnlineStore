@@ -9,7 +9,7 @@ export default function Collections() {
   const products = useSelector((state) => state.products.products);
 
   return products ? (
-    <Container maxW="100%">
+    <Container maxW="100%" px="30px">
       {products.map((item) => {
         return <ProductList item={item} key={item.id} />;
       })}

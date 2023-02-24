@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { collection, getDoc } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../utils/firebase/firebase";
 
 const initialState = {
   user: [
