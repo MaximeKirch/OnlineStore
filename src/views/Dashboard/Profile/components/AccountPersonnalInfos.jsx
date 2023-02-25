@@ -1,4 +1,4 @@
-import {Box,Text, Button, Flex, Input} from '@chakra-ui/react'
+import {Box,Text, Button, Flex, Input, FormControl, CloseButton} from '@chakra-ui/react'
 import { useSelector } from 'react-redux'
 import { useState } from 'react'
 
@@ -24,7 +24,7 @@ export default function AccountPersonnalInfos() {
           Wanna change something ?
         </Button>
       ) : (
-        <Button onClick={() => setToggleModify(!toggleModify)}>X</Button>
+        <CloseButton onClick={() => setToggleModify(!toggleModify)} />
       )}
 
         {!toggleModify ?
@@ -40,7 +40,7 @@ export default function AccountPersonnalInfos() {
             ) : (
         <>
           <Box>
-            <form>
+            <FormControl as="form">
               <Flex>
                 <Text>Firstname :</Text>
                 <Input
@@ -73,7 +73,7 @@ export default function AccountPersonnalInfos() {
                   onChange={(e) => setPhone(e.target.value)}
                 />
               </Flex>
-            </form>
+            </FormControl>
             <Button onClick={applyChanges}>Apply changes</Button>
           </Box>
         </>

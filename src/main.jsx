@@ -7,13 +7,13 @@ import theme from "./theme";
 import "@fontsource/kumbh-sans/400.css";
 import "@fontsource/kumbh-sans/700.css";
 import Layout from "./Layout/Layout.jsx";
-import Collections from "./views/Collections";
-import Men from "./views/Men";
-import Women from "./views/Women";
-import Contact from "./views/Contact";
-import About from "./views/About";
-import Account from "./views/Account";
-import ProductDetail from "./views/ProductDetail";
+import Collections from "./views/Homepage/Collections/Collections";
+import Men from "./views/Homepage/Men/Men";
+import Women from "./views/Homepage/Women/Women";
+import Contact from "./views/Homepage/Contact/Contact";
+import About from "./views/Homepage/About/About";
+import Account from "./views/Homepage/Account";
+import ProductDetail from "./views/Homepage/Collections/Partials/ProductDetail";
 import Dashboard from "./views/Dashboard/Dashboard/index"
 import Profile from "./views/Dashboard/Profile/index"
 import SignIn from "./views/Auth/SignIn"

@@ -1,10 +1,10 @@
 import {Flex, Box, Text, Image, Button} from '@chakra-ui/react'
-import AccountPersonnalInfos from '../components/Account/AccountPersonnalInfos'
-import AccountAddress from '../components/Account/AccountAddress'
-import AccountOrders from '../components/Account/AccountOrders'
+import AccountPersonnalInfos from '../Dashboard/Profile/components/AccountPersonnalInfos'
+import AccountAddress from '../Dashboard/Profile/components/AccountAddress'
+import AccountOrders from '../Dashboard/Profile/components/AccountOrders'
 import { useSelector } from 'react-redux'
 
-import Avatar from '../assets/image-avatar.png'
+import Avatar from '../../assets/image-avatar.png'
 
 export default function Account() {
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Container } from '@chakra-ui/react'
-import ProductCard from '../components/Product/ProductCard'
+import ProductCard from '../../../../components/Product/ProductCard'
 
 
 export default function ProductDetail() {

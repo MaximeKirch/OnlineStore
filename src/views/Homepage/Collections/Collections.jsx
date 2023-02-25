@@ -1,6 +1,6 @@
 import React from "react";
 
-import ProductList from "../components/Product/ProductList";
+import ProductList from "../../../components/Product/ProductList";
 import { Container, Spinner } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 

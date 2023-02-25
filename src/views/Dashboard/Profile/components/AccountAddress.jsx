@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Text, Input, Button, Flex } from "@chakra-ui/react";
+import { Box, Text, Input, Button, Flex, CloseButton } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 export default function AccountAddress() {
@@ -24,7 +24,7 @@ export default function AccountAddress() {
           Wanna change something ?
         </Button>
       ) : (
-        <Button onClick={() => setToggleModify(!toggleModify)}>X</Button>
+        <CloseButton onClick={() => setToggleModify(!toggleModify)} />
       )}
       {!toggleModify ? (
         <>
