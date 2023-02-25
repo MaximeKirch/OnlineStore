@@ -68,7 +68,7 @@ export default function Navbar() {
                     <IoCartOutline />
                   </Button>
                   {user ? (
-                    <Link as={ReachLink} to={"/account"}>
+                    <Link as={ReachLink} to={"/dashboard/profile"}>
                       <Button variant="primary">
                         <Image
                           src={userPicture ? userPicture : Avatar}
@@ -134,7 +134,7 @@ export default function Navbar() {
                           <IoCartOutline />
                         </Button>
                         {user ? (
-                          <Link as={ReachLink} to={"/account"}>
+                          <Link as={ReachLink} to={"/dashboard/profile"}>
                             <Button variant="primary">
                               <Image
                                 src={userPicture ? userPicture : Avatar}
@@ -145,10 +145,10 @@ export default function Navbar() {
                           </Link>
                         ) : (
                           <>
-                            <Link as={ReachLink} to={"/signin"}>
+                            <Link as={ReachLink} to={"/sign-in"}>
                               <Button>Sign in</Button>
                             </Link>
-                            <Link as={ReachLink} to={"/register"}>
+                            <Link as={ReachLink} to={"/sign-out"}>
                               <Button>Register</Button>
                             </Link>
                           </>

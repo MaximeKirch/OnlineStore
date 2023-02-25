@@ -1,6 +1,5 @@
 // Chakra imports
 import { Container, Flex, Grid, useColorModeValue, Box, Text, Image, Button } from "@chakra-ui/react";
-import avatar4 from "../../../assets/img/avatars/avatar4.png";
 import ProfileBgImage from "../../../assets/img/ProfileBackground.png";
 import React from "react";
 import { FaCube, FaPenFancy } from "react-icons/fa";
@@ -8,7 +7,6 @@ import { IoDocumentsSharp } from "react-icons/io5";
 import Header from "./components/Header";
 import PlatformSettings from ".//components/PlatformSettings";
 import ProfileInformation from "./components/ProfileInformation";
-import Projects from "./components/Projects";
 import AccountPersonnalInfos from './components/AccountPersonnalInfos'
 import AccountAddress from './components/AccountAddress'
 import AccountOrders from './components/AccountOrders'
@@ -20,6 +18,7 @@ import Avatar from '../../../assets/image-avatar.png'
 
 function Profile() {
   const user = useSelector(state => state.user.user[0]);
+  const userAddress = useSelector(state => state.user.user[0].address);
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
   const bgProfile = useColorModeValue(
@@ -61,14 +60,13 @@ function Profile() {
             name={`${user.firstName} ${user.lastName}`}
             mobile={user.phone}
             email={user.email}
-            location={"United States"}
+            location={userAddress.country}
           />
           <AccountPersonnalInfos/>
           <AccountAddress />
           <AccountOrders />
           <Button alignSelf="center" onClick={() => alert("Non désolé tu pars pas.")}> Sign Out </Button>
         </Grid>
-        <Projects title={"Projects"} description={"Architects design houses"} />
       </Flex>
     </Container>
   );
