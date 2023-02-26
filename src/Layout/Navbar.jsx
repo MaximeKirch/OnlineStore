@@ -24,9 +24,13 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [toggleCart, setToggleCart] = useState(false);
 
-  const userPicture = useSelector((state) => state.user.user[0].image);
 
-  const user = useSelector((state) => state.user.user[0]);
+  const userExists = useSelector(state => state.user.exists)
+
+  const user = useSelector(state => state.user);
+  const userPicture = useSelector(state => state.user.user.image)
+
+  
 
   return (
     <Box
@@ -67,11 +71,11 @@ export default function Navbar() {
                   >
                     <IoCartOutline />
                   </Button>
-                  {user ? (
+                  {userExists ? (
                     <Link as={ReachLink} to={"/dashboard/profile"}>
                       <Button variant="primary">
                         <Image
-                          src={userPicture ? userPicture : Avatar}
+                          src={userExists && userPicture ? userPicture : Avatar}
                           alt="Profile"
                           maxW="50px"
                         />
@@ -133,11 +137,11 @@ export default function Navbar() {
                         >
                           <IoCartOutline />
                         </Button>
-                        {user ? (
+                        {userExists ? (
                           <Link as={ReachLink} to={"/dashboard/profile"}>
                             <Button variant="primary">
                               <Image
-                                src={userPicture ? userPicture : Avatar}
+                                src={userExists && userPicture ? userPicture : Avatar}
                                 alt="Profile"
                                 maxW="50px"
                               />

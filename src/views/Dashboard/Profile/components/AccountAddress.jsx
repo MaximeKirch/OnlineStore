@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 export default function AccountAddress() {
 
-  const userAddress = useSelector((state) => state.user.user[0].address);
+  const userAddress = useSelector((state) => state.user.user.address);
 
   const [toggleModify, setToggleModify] = useState(false);
   const [address, setAddress] = useState(userAddress?.address);

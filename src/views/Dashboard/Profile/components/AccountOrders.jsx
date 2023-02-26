@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link as ReachLink} from "react-router-dom"
 
 export default function AccountOrders() {
-    const orders = useSelector(state => state.user.user[0].orders)
+    const orders = useSelector(state => state.user.user.orders)
 
     return (
        <Box border="1px solid #000" m={30} p={15}>

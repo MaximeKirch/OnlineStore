@@ -25,6 +25,13 @@ import {
 import signInImage from "../../assets/img/signInImage.png";
 import { FaGoogle } from "react-icons/fa";
 
+// Dispatch Redux
+import { useDispatch } from 'react-redux';
+import { fetchUserById } from "../../Redux/Reducers/user";
+
+// Navigation 
+import { useNavigate } from 'react-router-dom'
+
 const signInWithGoogle = async () => {
   const { user } = await signInWithGooglePopup();
   await createUserDocumentFromAuth(user);
@@ -35,6 +42,16 @@ function SignIn() {
   const titleColor = useColorModeValue("teal.300", "teal.200");
   const textColor = useColorModeValue("gray.400", "white");
   const bgIcons = useColorModeValue("teal.200", "rgba(255, 255, 255, 0.5)");
+
+  const userId = import.meta.env.VITE_ADMIN_ID
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const fetchUserFromAPI = () => {
+    dispatch(fetchUserById(userId))
+    navigate('/')
+
+  }
   return (
     <Flex position="relative" mb="40px">
       <Flex
@@ -120,6 +137,7 @@ function SignIn() {
                 _active={{
                   bg: "teal.400",
                 }}
+                onClick={fetchUserFromAPI}
               >
                 SIGN IN
               </Button>
