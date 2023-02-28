@@ -14,6 +14,7 @@ import { timelineData } from "../../../variables/general";
 import BuiltByDevelopers from "./components/BuiltByDevelopers";
 import OrdersOverview from "./components/OrdersOverview";
 import WorkWithTheRockets from "./components/WorkWithTheRockets";
+import AddProducts from "../AddProducts/AddProducts";
 
 export default function Dashboard() {
 
@@ -50,12 +51,23 @@ export default function Dashboard() {
       <Grid
         templateColumns={{ sm: "1fr", md: "1fr 1fr", lg: "2fr 1fr" }}
         templateRows={{ sm: "1fr auto", md: "1fr", lg: "1fr" }}
-        gap='24px'>
+        gap='24px'
+      >
         <OrdersOverview
           title={"Orders Overview"}
           amount={30}
           data={timelineData}
         />
+      </Grid>
+      <Grid
+        templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
+        templateRows={{ md: "1fr auto", lg: "1fr" }}
+        my='26px'
+        gap='24px'
+        justifyContent='center'
+        alignItems='center'
+        >
+          <AddProducts />
       </Grid>
     </Flex>
     </Container>
