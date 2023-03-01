@@ -13,10 +13,9 @@ export const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers : {
-        productsFetchLoading : (state, action) => {
+        productsFetchLoading : (state) => {
             if(state.loading === 'idle') {
                 state.loading = "pending"
-                state.products = action.payload;
             }
         },
         productsFetchSuccess : (state, action) => {
@@ -31,7 +30,7 @@ export const productsSlice = createSlice({
                 state.error = action.payload
             }
         },
-        productAddLoading: (state, action) => {
+        productAddLoading: (state) => {
             if(state.loading === 'idle') {
                 state.loading = 'pending'
             }
@@ -72,18 +71,19 @@ export const fetchProducts = () => async (dispatch) => {
 }
 
 export const addArticle = (article) => {
+
+    const dbRef = collection(db, 'products')
     return async (dispatch) => {
         dispatch(productAddLoading());
 
         try {
             // Ajout de l'article à Firebase
-            await addDoc(collection(db,'products'), article)
-                .then((querySnapshot) => {
-                    console.log(querySnapshot)
-                    // const article = querySnapshot.docs
-                    // .map((doc) => ({...doc.data(), id:doc.id }));
-                    // dispatch(productAddSuccess(article))
-                });
+            await addDoc(dbRef, article)
+                .then(docRef => { 
+                    const articleId = docRef._key.path.segments[1]
+                    dispatch(productAddSuccess(article, article.id=articleId))
+                    alert('Produit ajouté avec succès !')
+        });
         } catch (error) {
             dispatch(productAddError(error.message))
         }
