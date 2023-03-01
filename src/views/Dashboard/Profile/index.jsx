@@ -10,15 +10,23 @@ import ProfileInformation from "./components/ProfileInformation";
 import AccountPersonnalInfos from './components/AccountPersonnalInfos'
 import AccountAddress from './components/AccountAddress'
 import AccountOrders from './components/AccountOrders'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { userLogout } from "../../../Redux/Reducers/user";
+import { useNavigate } from "react-router-dom";
 
 import Avatar from '../../../assets/image-avatar.png'
 
 
 
+
+
 function Profile() {
-  const user = useSelector(state => state.user.user[0]);
-  const userAddress = useSelector(state => state.user.user[0].address);
+
+  const userExists = useSelector(state => state.user.exists)
+  const user = useSelector(state => state.user.user);
+  const userAddress = useSelector(state => state.user.user.address);
+  
+
   // Chakra color mode
   const textColor = useColorModeValue("gray.700", "white");
   const bgProfile = useColorModeValue(
@@ -26,9 +34,22 @@ function Profile() {
     "linear-gradient(112.83deg, rgba(255, 255, 255, 0.21) 0%, rgba(255, 255, 255, 0) 110.84%)"
   );
 
+ 
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+   
+
+    const handleLogout = () => {
+      dispatch(userLogout())
+      navigate('/')
+    }
+
+
   return (
     <Container maxW="100%" px="30px">
       <Flex direction="column">
+    { userExists && user &&
+    <>
         <Header
           backgroundHeader={ProfileBgImage}
           backgroundProfile={bgProfile}
@@ -65,8 +86,10 @@ function Profile() {
           <AccountPersonnalInfos/>
           <AccountAddress />
           <AccountOrders />
-          <Button alignSelf="center" onClick={() => alert("Non désolé tu pars pas.")}> Sign Out </Button>
+          <Button alignSelf="center" onClick={handleLogout}> Sign Out </Button>
         </Grid>
+        </>
+}
       </Flex>
     </Container>
   );

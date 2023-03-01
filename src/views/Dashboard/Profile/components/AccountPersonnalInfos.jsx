@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 export default function AccountPersonnalInfos() {
 
-    const user = useSelector(state => state.user.user[0])
+    const user = useSelector(state => state.user.user)
 
     const [toggleModify, setToggleModify] = useState(false);
     const [firstName, setFirstName] = useState(user.firstName);
