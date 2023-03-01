@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import { Container } from '@chakra-ui/react'
+import { Container, Button } from '@chakra-ui/react'
 import ProductCard from '../../../../components/Product/ProductCard'
 
 

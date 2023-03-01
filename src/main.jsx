@@ -18,6 +18,7 @@ import Dashboard from "./views/Dashboard/Dashboard/index"
 import Profile from "./views/Dashboard/Profile/index"
 import SignIn from "./views/Auth/SignIn"
 import SignUp from "./views/Auth/SignUp"
+import UpdateProduct from "./views/Dashboard/UpdateProduct/UpdateProduct";
 
 import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
@@ -115,6 +116,14 @@ const router = createBrowserRouter([
         <Profile />
       </Layout>
     ),
+  },
+  {
+    path: "dashboard/product/update/:id",
+    element: (
+      <Layout>
+        <UpdateProduct />
+      </Layout>
+    )
   },
   {
     path: "sign-in",
