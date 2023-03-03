@@ -1,4 +1,5 @@
 import React from "react";
+import { Text } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 
 export default function TotalPrice() {
@@ -11,5 +12,7 @@ export default function TotalPrice() {
     totalPrice += linePrice;
   }
 
-  return <div>Total : ${Math.floor(totalPrice).toFixed(2)}</div>;
+  return (
+    <Text fontWeight={700}>Total : ${Math.floor(totalPrice).toFixed(2)}</Text>
+  ) 
 }
