@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import  productsReducer  from "./Reducers/products"
 import { cartReducer } from './Reducers/cart'
 import { userReducer } from "./Reducers/user"
+import { contactReducer } from "./Reducers/contact"
 import { persistStore, persistReducer } from 'redux-persist'
 import  storage  from 'redux-persist/lib/storage'
 
@@ -17,7 +18,8 @@ export const store = configureStore({
     reducer : {
         products : productsReducer,
         cart : persistedCartReducer,
-        user : userReducer
+        user : userReducer,
+        contact: contactReducer
     }
 })
 

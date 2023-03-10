@@ -18,6 +18,7 @@ import Dashboard from "./views/Dashboard/Dashboard/index"
 import Profile from "./views/Dashboard/Profile/index"
 import SignIn from "./views/Auth/SignIn"
 import SignUp from "./views/Auth/SignUp"
+import Checkout from "./views/Homepage/Checkout/Checkout"
 
 import { store, persistor } from "./Redux/store.js";
 import { Provider } from "react-redux";
@@ -129,6 +130,14 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <SignUp />
+      </Layout>
+    ),
+  },
+  {
+    path: "checkout",
+    element: (
+      <Layout>
+        <Checkout />
       </Layout>
     ),
   },
